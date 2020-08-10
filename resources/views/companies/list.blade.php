@@ -1,15 +1,10 @@
-@extends('layouts.app')
+@extends('admin')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Companies</div>
-                @if(count($companies))
-                    <h1><a href="{{ route('employer.index') }}" class="btn btn-secondary">Employers</a></h1>
-                @endif
-
                	<div class="card-body">
                     <table border="1" width="100%" cellpadding="5" class="table">
                         <thead >

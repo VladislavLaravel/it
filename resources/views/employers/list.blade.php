@@ -1,13 +1,10 @@
-@extends('layouts.app')
+@extends('admin')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Categories</div>
-                <h1><a href="{{ route('company.index') }}" class="btn btn-secondary">Companies</a></h1>
-
                	<div class="card-body">
                     
 
