@@ -49,7 +49,7 @@
                         {{ $message }}
                     @endif
                 </div>
-                @if(count($employers))
+                @if(count($employers) == 0)
                 	<a href="{{ route('employer.create') }}" class="btn btn-secondary">Create your first employer</a>
                 @endif
                 

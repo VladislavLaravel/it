@@ -47,7 +47,7 @@
                         {{ $message }}
                     @endif
                 </div>
-                 @if(count($companies))
+                 @if(count($companies) == 0)
                 	<a href="{{ route('company.create') }}" class="btn btn-secondary">Create your first company</a>
                 @endif
                 
