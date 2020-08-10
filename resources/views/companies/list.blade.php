@@ -48,6 +48,7 @@
                         </tbody>
                     </table>
                     
+                    {{ $companies->links() }}
                     
                     <a href="{{ route('company.create') }}" class="btn btn-secondary">Add company</a>
 

@@ -20,6 +20,7 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th class="last-th-table-js" style="padding:0"></th>
+                                <th class="last-th-table-js" style="padding:0"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,9 +41,12 @@
                                     </td>
                             	</tr>
                             @endforeach
+
+
                         </tbody>
                     </table>
                     
+                    {{ $employers->links() }}
                     
                     <a href="{{ route('employer.create') }}" class="btn btn-secondary">Add employer</a>
 
