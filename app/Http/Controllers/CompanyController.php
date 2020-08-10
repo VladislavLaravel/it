@@ -38,12 +38,12 @@ class CompanyController extends Controller
     {
         $company = Company::create($request->all());
 
-        if($request->file('image'))
-            $company->logo = $request->file('image')->store('upload', 'public');
+        if($request->file('logo'))
+            $company->logo = $request->file('logo')->store('upload', 'public');
 
         $company->save();
 
-        return redirect()->route('companies.list');
+        return redirect()->route('company.index');
     }
 
     /**
@@ -79,12 +79,12 @@ class CompanyController extends Controller
     {
         $company->update($request->all());
 
-        if($request->file('image'))
-            $company->logo = $request->file('image')->store('upload', 'public');
+        if($request->file('logo'))
+            $company->logo = $request->file('logo')->store('upload', 'public');
 
         $company->save();
 
-        return redirect()->route('companies.list');
+        return redirect()->route('company.index');
     }
 
     /**
@@ -97,6 +97,6 @@ class CompanyController extends Controller
     {
         $company->delete();
 
-        return redirect()->route('companies.list');
+        return redirect()->route('company.index');
     }
 }

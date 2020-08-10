@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
-                <form  action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">
+                <form  action="{{route('employer.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
@@ -30,7 +30,7 @@
                     <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                           <input type="email" name="name" id="email">
+                           <input type="email" name="email" id="email">
                         </div>
                     </div>
 
@@ -40,19 +40,19 @@
                     <div class="form-group row">
                         <label for="phone" class="col-sm-2 col-form-label">phone</label>
                         <div class="col-sm-10">
-                           <input type="text" name="name" id="phone">
+                           <input type="text" name="phone" id="phone">
                         </div>
                     </div>
 
                      <div class="form-group row">
                         <label for="company" class="col-sm-2 col-form-label">company</label>
-                        <select name="company" id="company" required>
+                        <select name="company_id" id="company" required>
                             @foreach($companies as $company)
                                 <option value="{{$company->id}}"> {{$company->name }} </option>
                             @endforeach
                         </select>
                     </div>
-                    @if ($errors->has("company"))<span>{{ $errors->first("company") }}</span>@endif
+                    @if ($errors->has("company_id"))<span>{{ $errors->first("company_id") }}</span>@endif
 
                     <button type="submit">Create</button>
                 </form>

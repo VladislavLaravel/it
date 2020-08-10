@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployerRequest;
 use App\Employer;
+use App\Company;
 
 class EmployerController extends Controller
 {
@@ -25,7 +26,7 @@ class EmployerController extends Controller
      */
     public function create()
     {
-        return view('employers.create');
+        return view('employers.create', ['companies' => Company::all()->sortBy('id')]);
     }
 
     /**
@@ -38,7 +39,7 @@ class EmployerController extends Controller
     {
         Employer::create($request->all());
 
-        return redirect()->route('employers.list');
+        return redirect()->route('employer.index');
     }
 
     /**
@@ -59,8 +60,10 @@ class EmployerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Employer $employer)
-    {
-        return view('employers.edit', compact('employer'));
+    {   
+        $companies = Company::all()->sortBy('id');
+
+        return view('employers.edit', compact('employer', 'companies'));
     }
 
     /**
@@ -74,7 +77,7 @@ class EmployerController extends Controller
     {
         $employer->update($request->all());
 
-        return redirect()->route('employers.list');
+        return redirect()->route('employer.index');
     }
 
     /**
@@ -87,6 +90,6 @@ class EmployerController extends Controller
     {   
         $employer->delete();
         
-        return redirect()->route('employers.list');
+        return redirect()->route('employer.index');
     }
 }

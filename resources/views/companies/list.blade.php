@@ -17,8 +17,10 @@
                         <thead >
                             <tr>
                                 <th>Name</th>
-                                <th>Desc</th>
-                                <th>Image</th>
+                                <th>Email</th>
+                                <th>Logo</th>
+                                <th>website</th>
+                                <th class="last-th-table-js" style="padding:0"></th>
                                 <th class="last-th-table-js" style="padding:0"></th>
                             </tr>
                         </thead>
@@ -26,13 +28,21 @@
                             @foreach($companies as $company)
                             	<tr>
                             		<td>{{ $company->name }}</td>
-                                    <td>{{ $company->description }}</td>
+                                    <td>{{ $company->email }}</td>
                                     <td>
-                                    	@if($company->image)
+                                    	@if($company->logo)
                             				<img src="{{asset('/storage/' . $company->logo)}}">
                             			@endif
                             		</td>
-                                    <td><a href="{{ route('company.edit', $company->id) }}" class="btn btn-secondary">Update</a></td>
+                                    <td>{{ $company->website }}</td>
+                                    <td><a href="{{ route('company.edit',  $company->id) }}" class="btn btn-secondary">Update</a></td>
+                                    <td>
+                                        <form action="{{route('company.destroy', $company->id) }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <input type="submit" value="Delete" name="" class="btn btn-secondary">
+                                        </form>
+                                    </td>
                             	</tr>
                             @endforeach
                         </tbody>

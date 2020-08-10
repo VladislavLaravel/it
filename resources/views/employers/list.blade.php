@@ -14,23 +14,30 @@
                      <table border="1" width="100%" cellpadding="5">
                         <thead >
                             <tr>
-                                <th>Name</th>
-                                <th>Desc</th>
-                                <th>Image</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Company</th>
+                                <th>Email</th>
+                                <th>Phone</th>
                                 <th class="last-th-table-js" style="padding:0"></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($employers as $employer)
                             	<tr>
-                            		<td>{{ $employer->name }}</td>
-                                    <td>{{ $employer->description }}</td>
-                                    <td>
-                                    	@if($employer->image)
-                            				<img src="{{asset('/storage/' . $employer->image)}}">
-                            			@endif
-                            		</td>
+                            		<td>{{ $employer->first_name }}</td>
+                                    <td>{{ $employer->last_name }}</td>
+                                    <td>{{ $employer->company->name }}</td>
+                                    <td>{{ $employer->email }}</td>
+                                    <td>{{ $employer->phone }}</td>
                                     <td><a href="{{ route('employer.edit', $employer->id) }}" class="btn btn-secondary">Update</a></td>
+                                    <td>
+                                        <form action="{{route('employer.destroy', $employer->id) }}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <input type="submit" value="Delete" name="" class="btn btn-secondary">
+                                        </form>
+                                    </td>
                             	</tr>
                             @endforeach
                         </tbody>
@@ -43,7 +50,7 @@
                         {{ $message }}
                     @endif
                 </div>
-                @else
+                @if(count($employers))
                 	<a href="{{ route('employer.create') }}" class="btn btn-secondary">Create your first employer</a>
                 @endif
                 

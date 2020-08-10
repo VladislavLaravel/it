@@ -13,7 +13,7 @@
                     <div class="form-group row">
                         <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
                         <div class="col-sm-10">
-                           <input type="text" name="first_name" id="first_name" value="{{ $employer->name }}">
+                           <input type="text" name="first_name" id="first_name" value="{{ $employer->first_name }}">
                         </div>
                     </div>
                     @if ($errors->has("first_name"))<span>{{ $errors->first("first_name") }}</span>@endif
@@ -21,7 +21,7 @@
                     <div class="form-group row">
                         <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
                         <div class="col-sm-10">
-                           <input type="text" name="last_name" id="last_name" value="{{ $employer->name }}">
+                           <input type="text" name="last_name" id="last_name" value="{{ $employer->last_name }}">
                         </div>
                     </div>
 
@@ -31,7 +31,7 @@
                     <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                           <input type="email" name="name" id="email" value="{{ $employer->name }}">
+                           <input type="email" name="name" id="email" value="{{ $employer->email }}">
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
                     <div class="form-group row">
                         <label for="phone" class="col-sm-2 col-form-label">phone</label>
                         <div class="col-sm-10">
-                           <input type="text" name="name" id="phone" value="{{ $employer->name }}">
+                           <input type="text" name="phone" id="phone" value="{{ $employer->phone }}">
                         </div>
                     </div>
 
@@ -58,7 +58,11 @@
                             @endforeach
                         </select>
                     </div>
-                    @if ($errors->has("company"))<span>{{ $errors->first("company") }}</span>@endif
+
+                    <div>
+                        
+                    </div>
+                    @if ($errors->has("company_id"))<span>{{ $errors->first("company_id") }}</span>@endif
 
 
                     <button type="submit">Update</button>

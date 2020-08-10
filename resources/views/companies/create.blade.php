@@ -20,23 +20,23 @@
                     <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                           <input type="email" name="name" id="email">
+                           <input type="email" name="email" id="email">
                         </div>
                     </div>
 
                     @if ($errors->has("email"))<span>{{ $errors->first("email") }}</span>@endif
                     
                     <div class="form-group row">
-                        <label for="image" class="col-sm-2 col-form-label">Image</label>
+                        <label for="logo" class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-10">
-                           <input type="file" name="image" id="image">
+                           <input type="file" name="logo" id="logo">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="website" class="col-sm-2 col-form-label">Website</label>
                         <div class="col-sm-10">
-                           <input type="website" name="name" id="website">
+                           <input type="website" name="website" id="website">
                         </div>
                     </div>
 
