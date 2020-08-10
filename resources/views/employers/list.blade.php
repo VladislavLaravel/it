@@ -11,7 +11,7 @@
                	<div class="card-body">
                     
 
-                     <table border="1" width="100%" cellpadding="5">
+                     <table border="1" width="100%" cellpadding="5" class="table">
                         <thead >
                             <tr>
                                 <th>First Name</th>
@@ -46,8 +46,6 @@
                         </tbody>
                     </table>
                     
-                    {{ $employers->links() }}
-                    
                     <a href="{{ route('employer.create') }}" class="btn btn-secondary">Add employer</a>
 
                     @if(isset($message))
@@ -62,4 +60,7 @@
         </div>
     </div>
 </div>
+
 @endsection
+
+

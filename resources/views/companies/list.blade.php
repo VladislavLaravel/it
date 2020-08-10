@@ -11,9 +11,7 @@
                 @endif
 
                	<div class="card-body">
-                    
-
-                     <table border="1" width="100%" cellpadding="5">
+                    <table border="1" width="100%" cellpadding="5" class="table">
                         <thead >
                             <tr>
                                 <th>Name</th>
@@ -47,8 +45,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    
-                    {{ $companies->links() }}
                     
                     <a href="{{ route('company.create') }}" class="btn btn-secondary">Add company</a>
 

@@ -14,6 +14,11 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
@@ -71,5 +76,7 @@
             @yield('content')
         </main>
     </div>
+
+    <script defer type="text/javascript" src="{{ URL::asset('/js/js.js?v='.filemtime('js/js.js')) }}"></script>
 </body>
 </html>
