@@ -38,6 +38,11 @@ class CompanyController extends Controller
     {
         $company = Company::create($request->all());
 
+        if($request->file('image'))
+            $company->logo = $request->file('image')->store('upload', 'public');
+
+        $company->save();
+
         return redirect()->route('companies.list');
     }
 
@@ -73,6 +78,11 @@ class CompanyController extends Controller
     public function update(CompanyRequest $request, Company $company)
     {
         $company->update($request->all());
+
+        if($request->file('image'))
+            $company->logo = $request->file('image')->store('upload', 'public');
+
+        $company->save();
 
         return redirect()->route('companies.list');
     }
