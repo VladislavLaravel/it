@@ -20,7 +20,6 @@ class CreateEmployersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\EmployerRequest;
+use App\Employer;
 
 class EmployerController extends Controller
 {
@@ -13,7 +15,7 @@ class EmployerController extends Controller
      */
     public function index()
     {
-        //
+        return view('employers.list', ['employers' => Employer::all()->sortBy('id')]);
     }
 
     /**
@@ -23,7 +25,7 @@ class EmployerController extends Controller
      */
     public function create()
     {
-        //
+        return view('employers.create');
     }
 
     /**
@@ -32,9 +34,11 @@ class EmployerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployerRequest $request)
     {
-        //
+        Employer::create($request->all());
+
+        return redirect()->route('employers.list');
     }
 
     /**
@@ -43,9 +47,9 @@ class EmployerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Employer $employer)
     {
-        //
+        return view('employers.show', compact('employer'));
     }
 
     /**
@@ -54,9 +58,9 @@ class EmployerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Employer $employer)
     {
-        //
+        return view('employers.edit', compact('employer'));
     }
 
     /**
@@ -66,9 +70,11 @@ class EmployerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmployerRequest $request, Employer $employer)
     {
-        //
+        $employer->update($request->all());
+
+        return redirect()->route('employers.list');
     }
 
     /**
@@ -77,8 +83,10 @@ class EmployerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Employer $employer)
+    {   
+        $employer->delete();
+        
+        return redirect()->route('employers.list');
     }
 }
