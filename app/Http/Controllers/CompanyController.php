@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\CompanyRequest;
 use App\Company;
 
@@ -37,11 +36,6 @@ class CompanyController extends Controller
     public function store(CompanyRequest $request)
     {
         $company = Company::create($request->all());
-
-        if($request->file('logo'))
-            $company->logo = $request->file('logo')->store('upload', 'public');
-
-        $company->save();
 
         return redirect()->route('company.index');
     }
@@ -78,11 +72,6 @@ class CompanyController extends Controller
     public function update(CompanyRequest $request, Company $company)
     {
         $company->update($request->all());
-
-        if($request->file('logo'))
-            $company->logo = $request->file('logo')->store('upload', 'public');
-
-        $company->save();
 
         return redirect()->route('company.index');
     }
